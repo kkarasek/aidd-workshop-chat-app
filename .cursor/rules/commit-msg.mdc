@@ -1,0 +1,26 @@
+# Commit Message Formatting Preference
+
+The user prefers commit messages that are semantic, concise, and use bullet points for the body. The format should be easily readable at a glance and also formatted for direct pasting into the terminal.
+
+### Guiding Principles:
+- Start with a semantic prefix (e.g., `feat`, `fix`, `chore`).
+- The title should be a short, imperative summary of the change.
+- The body should use bullet points (`-`) to detail the key changes.
+- Avoid overly long or verbose descriptions. Focus on the "what" and "why."
+
+### Example of a Good Commit Message (Readable Format):
+
+```
+feat(orders): Add address propagation tools to edit modal
+
+- Adds a conditional action bar with "Apply to All", "Copy", and "Paste" buttons.
+- The action bar is only visible for multi-shipment orders to keep the UI clean.
+- Implements `applyToAll` to use the current shipment as a blueprint for all others.
+- Implements `copy/paste` functionality for granular address transfers between tabs.
+```
+
+### Example of a Good Commit Message (Terminal Format):
+
+```bash
+git commit -m "feat(orders): Add address propagation tools to edit modal" -m "- Adds a conditional action bar with 'Apply to All', 'Copy', and 'Paste' buttons." -m "- The action bar is only visible for multi-shipment orders to keep the UI clean." -m "- Implements 'applyToAll' to use the current shipment as a blueprint for all others." -m "- Implements 'copy/paste' functionality for granular address transfers between tabs."
+``` 

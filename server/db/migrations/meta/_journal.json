@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1751996840915,
+      "tag": "0000_opposite_james_howlett",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1751996877083,
+      "tag": "0001_worthless_blue_marvel",
+      "breakpoints": true
+    }
+  ]
+}

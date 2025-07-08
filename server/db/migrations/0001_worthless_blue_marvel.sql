@@ -1,0 +1,1 @@
+ALTER TABLE `messages` MODIFY COLUMN `conversation_id` int NOT NULL;

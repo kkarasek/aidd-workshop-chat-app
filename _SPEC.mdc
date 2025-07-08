@@ -1,0 +1,134 @@
+---
+alwaysApply: false
+---
+
+# Project Specification: AI DD Chat App
+
+## 1. Project Goal
+
+The primary goal is to build the frontend and backend for a simple "ChatGPT-like" application. The application will feature a main chat interface, a history of conversations, and the core API to support these features. The focus is on a high-quality, maintainable codebase using a modern tech stack.
+
+## 2. Core Features
+
+-   **Welcome Screen:** A default view that prompts the user to start a new chat or select an existing one.
+-   **Chat Interface:** A clean, interactive window for sending messages to and receiving (dummy) responses from the agent.
+-   **Conversation History:** A sidebar that lists all past conversations, allowing the user to switch between them.
+-   **Persistent Conversations:** Chat history is saved and will persist across browser sessions.
+
+## 3. Tech Stack
+
+-   **Framework:** Nuxt.js (Latest Version)
+-   **Language:** TypeScript (with `<script setup>`)
+-   **Styling:** Tailwind CSS
+-   **UI Components:** Nuxt UI
+-   **ORM:** Drizzle ORM
+-   **Database:** Turso (via `@libsql/client`)
+-   **API Documentation:** Scalar
+
+## 4. Database Schema
+
+We will use two main tables:
+
+1.  **`conversations`**
+    -   `id` (Primary Key, e.g., CUID)
+    -   `topic` (Text, a short, auto-generated summary of the conversation)
+    -   `createdAt` (Timestamp)
+    -   `updatedAt` (Timestamp)
+
+2.  **`messages`**
+    -   `id` (Primary Key, e.g., CUID)
+    -   `conversationId` (Foreign Key -> `conversations.id`)
+    -   `role` (Enum: 'user' or 'assistant')
+    -   `content` (Text)
+    -   `createdAt` (Timestamp)
+
+## 5. API Endpoints
+
+All endpoints will be created under the `/api` directory in Nuxt.
+
+-   **Conversations API**
+    -   `GET /api/conversations`: Fetch all conversations.
+    -   `GET /api/conversations/:id`: Fetch a single conversation with all its messages.
+    -   `POST /api/conversations`: Create a new, empty conversation.
+    -   `PUT /api/conversations/:id`: Update a conversation (e.g., to change its topic).
+    -   `DELETE /api/conversations/:id`: Delete a conversation and all its messages.
+
+-   **Chat API**
+    -   `POST /api/chat`: Send a new message within a conversation. It will add the user's message and a dummy assistant message to the specified conversation.
+
+## 6. Frontend Components
+
+-   **`app.vue`**: The main entry point containing the layout.
+-   **Layouts (`layouts/default.vue`)**: A default layout including the sidebar and the main content area.
+-   **Components (`components/`)**:
+    -   `ConversationHistory.vue`: The sidebar component to list conversations.
+    -   `ChatWindow.vue`: The main component for displaying messages and the message input form.
+    -   `Welcome.vue`: A component shown when no conversation is selected.
+-   **Pages (`pages/`)**:
+    -   `index.vue`: The main page, which will likely show the `Welcome.vue` component.
+    -   `[id].vue`: A dynamic page to display a specific chat conversation.
+# Project Specification: AI DD Chat App
+
+## 1. Project Goal
+
+The primary goal is to build the frontend and backend for a simple "ChatGPT-like" application. The application will feature a main chat interface, a history of conversations, and the core API to support these features. The focus is on a high-quality, maintainable codebase using a modern tech stack.
+
+## 2. Core Features
+
+-   **Welcome Screen:** A default view that prompts the user to start a new chat or select an existing one.
+-   **Chat Interface:** A clean, interactive window for sending messages to and receiving (dummy) responses from the agent.
+-   **Conversation History:** A sidebar that lists all past conversations, allowing the user to switch between them.
+-   **Persistent Conversations:** Chat history is saved and will persist across browser sessions.
+
+## 3. Tech Stack
+
+-   **Framework:** Nuxt.js (Latest Version)
+-   **Language:** TypeScript (with `<script setup>`)
+-   **Styling:** Tailwind CSS
+-   **UI Components:** Nuxt UI
+-   **ORM:** Drizzle ORM
+-   **Database:** Turso (via `@libsql/client`)
+-   **API Documentation:** Scalar
+
+## 4. Database Schema
+
+We will use two main tables:
+
+1.  **`conversations`**
+    -   `id` (Primary Key, e.g., CUID)
+    -   `topic` (Text, a short, auto-generated summary of the conversation)
+    -   `createdAt` (Timestamp)
+    -   `updatedAt` (Timestamp)
+
+2.  **`messages`**
+    -   `id` (Primary Key, e.g., CUID)
+    -   `conversationId` (Foreign Key -> `conversations.id`)
+    -   `role` (Enum: 'user' or 'assistant')
+    -   `content` (Text)
+    -   `createdAt` (Timestamp)
+
+## 5. API Endpoints
+
+All endpoints will be created under the `/api` directory in Nuxt.
+
+-   **Conversations API**
+    -   `GET /api/conversations`: Fetch all conversations.
+    -   `GET /api/conversations/:id`: Fetch a single conversation with all its messages.
+    -   `POST /api/conversations`: Create a new, empty conversation.
+    -   `PUT /api/conversations/:id`: Update a conversation (e.g., to change its topic).
+    -   `DELETE /api/conversations/:id`: Delete a conversation and all its messages.
+
+-   **Chat API**
+    -   `POST /api/chat`: Send a new message within a conversation. It will add the user's message and a dummy assistant message to the specified conversation.
+
+## 6. Frontend Components
+
+-   **`app.vue`**: The main entry point containing the layout.
+-   **Layouts (`layouts/default.vue`)**: A default layout including the sidebar and the main content area.
+-   **Components (`components/`)**:
+    -   `ConversationHistory.vue`: The sidebar component to list conversations.
+    -   `ChatWindow.vue`: The main component for displaying messages and the message input form.
+    -   `Welcome.vue`: A component shown when no conversation is selected.
+-   **Pages (`pages/`)**:
+    -   `index.vue`: The main page, which will likely show the `Welcome.vue` component.
+    -   `[id].vue`: A dynamic page to display a specific chat conversation.
